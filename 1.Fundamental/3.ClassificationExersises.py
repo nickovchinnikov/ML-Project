@@ -25,7 +25,7 @@ you just need to find good hyperparameter values (try a grid search on the
 mnist = fetch_openml("mnist_784", version=1)
 mnist.keys()
 # %%
-X, y = mnist.data, mnist.target
+X, y = mnist.data.to_numpy(), mnist.target
 
 X.shape, y.shape
 # %%
