@@ -156,28 +156,28 @@ theta = training(y_k, x, theta, n_iterations, eta)
 theta
 
 # %% [markdown]
-"""
+
 #### Equation 4-21. Softmax Regression classifier prediction
 
-$$
-\hat{y} = 
-\underset{k}{\operatorname{argmax}} \space \sigma(s(x))_k
-$$
+# $$
+# \hat{y} = 
+# \underset{k}{\operatorname{argmax}} \space \sigma(s(x))_k
+# $$
 
-Because $\sigma(s(x))_k$ is the ration we can use
+# Because $\sigma(s(x))_k$ is the ration we can use
 
-$$
-\hat{y} =
-\underset{k}{\operatorname{argmax}} \space s_k(x)
-$$
+# $$
+# \hat{y} =
+# \underset{k}{\operatorname{argmax}} \space s_k(x)
+# $$
 
-Replace $s_k(x)$
+# Replace $s_k(x)$
 
-$$
-\hat{y} =
-\underset{k}{\operatorname{argmax}} \space ((\theta^{(k)})^T x)
-$$
-"""
+# $$
+# \hat{y} =
+# \underset{k}{\operatorname{argmax}} \space ((\theta^{(k)})^T x)
+# $$
+
 
 # %%
 # Check on the validation set
