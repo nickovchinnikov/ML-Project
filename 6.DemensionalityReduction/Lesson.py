@@ -98,10 +98,14 @@ d
 # %%
 # Plot the cumulative variance ratio
 plt.figure(figsize=(10, 5))
+
 plt.plot(cumsum, linewidth=2)
+
 plt.xlabel('Number of components')
 plt.ylabel('Cumulative explained variance')
+
 plt.plot(d, 0.95, 'ko')
+
 plt.annotate(
     '95%',
     xy=(d, 0.95),
@@ -109,6 +113,7 @@ plt.annotate(
     arrowprops=dict(arrowstyle='->'),
     fontsize=16
 )
+
 plt.annotate(
     'Elbow',
     xy=(40, 0.8),
@@ -116,10 +121,13 @@ plt.annotate(
     arrowprops=dict(arrowstyle='->'),
     fontsize=16
 )
+
 plt.plot([d, d], [0, 0.95], 'k--')
 plt.plot([0, d], [0.95, 0.95], 'k--')
+
 plt.axis([0, 400, 0, 1])
 plt.grid(True)
+
 plt.show()
 
 # %%
@@ -236,7 +244,6 @@ for subplot, pca, title in subplots:
     if subplot == 131:
         plt.ylabel("$z_2$", fontsize=18, rotation=0)
 
-    plt.grid(True)
     ax.set_aspect("equal")
     plt.title(title, fontsize=14)
     plt.grid(True)
@@ -304,10 +311,13 @@ X_reduced = lle.fit_transform(X)
 # Plot the unrolled swiss roll using the LLE embedding
 plt.title("Unrolled swiss roll using LLE", fontsize=14)
 plt.scatter(X_reduced[:, 0], X_reduced[:, 1], c=t, cmap=plt.cm.hot)
+
 plt.xlabel("$z_1$", fontsize=18)
 plt.ylabel("$z_2$", fontsize=18, rotation=0)
+
 plt.tight_layout()
 plt.grid(True)
+
 plt.show()
 
 # %%
