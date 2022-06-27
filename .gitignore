@@ -3,5 +3,4 @@
 .vscode
 .lh
 *.data
-logs
-logs*
+*logs*
