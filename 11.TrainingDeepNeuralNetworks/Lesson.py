@@ -599,6 +599,7 @@ mc_model.summary()
 optimizer = keras.optimizers.SGD(
     learning_rate=0.01, momentum=0.9, nesterov=True
 )
+
 mc_model.compile(
     loss="sparse_categorical_crossentropy",
     optimizer=optimizer,
@@ -619,4 +620,36 @@ layer = keras.layers.Dense(
     100, activation="elu", kernel_initializer="he_normal",
     kernel_constraint=keras.constraints.MaxNorm(max_value=1.0)
 )
+# %%
+# Use l2 regularization
+EluRegularized = partial(
+    keras.layers.Dense,
+    activation="elu",
+    kernel_initializer="he_normal",
+    kernel_regularizer=keras.regularizers.l2(0.01)
+)
+
+model = keras.models.Sequential([
+    keras.layers.Flatten(input_shape=(28, 28)),
+    EluRegularized(300),
+    EluRegularized(100),
+    keras.layers.Dense(
+        10,
+        activation="softmax",
+        kernel_regularizer=keras.regularizers.l2(0.01)
+    )
+])
+
+model.compile(
+    loss="sparse_categorical_crossentropy",
+    optimizer="nadam",
+    metrics=["accuracy"]
+)
+
+n_epoch = 2
+history = model.fit(
+    X_train, y_train, epochs=n_epoch,
+    validation_data=(X_valid, y_valid)
+)
+
 # %%
