@@ -151,4 +151,5 @@ model.fit(X_train, y_train, epochs=100,
 # %%
 model = keras.models.load_model('my_cifar10_bn_model.h5')
 model.evaluate(X_valid, y_valid)
+
 # %%
